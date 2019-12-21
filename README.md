@@ -8,6 +8,8 @@ npm install
 
 //modify your jwt secret key on jwt.js
 
+//modify your jwt issuer 
+
 //modify your database config on config/config.json
 
 pm2 start ecosystem-prod.config.js
