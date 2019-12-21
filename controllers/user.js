@@ -15,7 +15,7 @@ module.exports={
                 status:'unverified',
                 iat:dayjs().unix()
             }).catch(e=>{throw new Error(e)})
-            const token = jwt.sign({id:data.id},jwtconfig.secret,{issuer:'zealbuddy'})
+            const token = jwt.sign({id:data.id},jwtconfig.secret,{issuer:'yourcompanyname'})
             return res.send({msg:'OK',data:[{token}]})
         } catch (e) {
             return res.status(500).send({msg:e.message})
@@ -36,7 +36,7 @@ module.exports={
             const result =await bcrypt.compare(validatedInput.password,data.passsword)
             if(!result) throw {code:401,message:'wrong password'}
             await data.update({iat:dayjs().unix()}).catch(e=>{throw new Error(e)})
-            const token = jwt.sign({id:data.id},jwtconfig.secret,{issuer:'zealbuddy'})
+            const token = jwt.sign({id:data.id},jwtconfig.secret,{issuer:'yourcompanyname'})
             return res.send({msg:'OK',data:[{token}]})
         } catch (error) {
             return res.status(error.code?error.code:500).send({msg:error.message})

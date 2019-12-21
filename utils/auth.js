@@ -18,7 +18,7 @@ module.exports={
 async function checkAuth(req){
     if (!req.headers.token)throw {code:401,message:'not login'}
     let temp
-    jwt.verify(req.headers.token,config.secret,{issuer:'zealbuddy'},async function(err,decoded){
+    jwt.verify(req.headers.token,config.secret,{issuer:'yourcompanyname'},async function(err,decoded){
         if(err)throw {code:400,message:'bad request'}
         const data = await db.user.findOne({where:{id:decoded.id}}).catch(e=>{throw new Error(e)})
         if(!data || dayjs(decoded.iat).add(7,'day')<dayjs() ||decoded.iat<data.iat) throw {code:401,message:'token expired'}
