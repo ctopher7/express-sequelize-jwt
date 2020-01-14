@@ -1,7 +1,7 @@
 const db = require('../models')
 
 module.exports={
-    async signUp(req,res,next){
+    async signUpValidator(req,res,next){
         try {
             const data = await db.user.findOne({
                 where:{

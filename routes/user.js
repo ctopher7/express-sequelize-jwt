@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const cont = require('../controllers/user')
+const controller = require('../controllers/user')
 const joi = require('../joi/user')
-const validator = require('../validator/user')
+const utils = require('../utils/user')
 
-router.post('/signUp',joi.signUp,validator.signUp,cont.signUp);
-router.post('/signIn',joi.signIn,cont.signIn)
+router.post('/signUp',joi.signUp,utils.signUpValidator,controller.signUp);
+router.post('/signIn',joi.signIn,controller.signIn)
 
 module.exports = {router,routePath:'/user'};
