@@ -1,5 +1,4 @@
-const express = require('express')
-const app = express()
+const app = require('express')()
 const fs = require('fs')
 const path = require('path')
 const cookieParser = require('cookie-parser')
