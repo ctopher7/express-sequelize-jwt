@@ -18,5 +18,7 @@ using npm cli:
 npm install
 npm start
 ```
-API: user sign up, user sign in
+Pre-build API: 
+- user sign up 
+- user sign in
 
