@@ -21,7 +21,7 @@ async function checkAuth(req){
     jwt.verify(req.headers.token,config.secret,{issuer:'yourcompanyname'},async function(err,decoded){
         if(err)throw {code:400,message:'bad request'}
         const data = await db.user.findOne({where:{id:decoded.id}}).catch(e=>{throw new Error(e)})
-        if(!data || dayjs(decoded.iat).add(7,'day')<dayjs() ||decoded.iat<data.iat) throw {code:401,message:'token expired'}
+        if(!data || dayjs.unix(decoded.iat).add(7,'day')<dayjs() ||decoded.iat<data.iat) throw {code:401,message:'token expired'}
         temp=decoded
     })
     return temp

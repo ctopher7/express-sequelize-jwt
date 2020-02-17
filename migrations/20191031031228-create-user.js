@@ -24,7 +24,7 @@ module.exports = {
         type: Sequelize.ENUM('unverified','verified')
       },
       iat:{
-        type:Sequelize.DATE
+        type:Sequelize.BIGINT
       },
       createdAt: {
         allowNull: false,
