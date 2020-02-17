@@ -2,9 +2,7 @@ const app = require('express')()
 const fs = require('fs')
 const path = require('path')
 const cookieParser = require('cookie-parser')
-
 const bodyParser = require('body-parser')
-
 
 const nodeEnv = process.env.NODE_ENV
 var envPath
