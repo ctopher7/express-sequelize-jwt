@@ -3,10 +3,11 @@ const dayjs = require('dayjs')
 const bcrypt =require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const jwtconfig = require('../jwt')
+
 module.exports={
     async signUp(req,res){
         try {
-            const dob = res.locals.validatedInput.dob.split('')
+            const dob = res.locals.validatedInput.dob.split('-')
             const data = await db.user.create({
                 name:res.locals.validatedInput.name,
                 dob:dayjs().set('date',dob[0]).set('month',dob[1]).set('year',dob[2]).startOf('day'),
