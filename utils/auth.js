@@ -6,7 +6,7 @@ const dayjs = require('dayjs')
 module.exports={
     isLogin:(req,res,next)=>{
         checkAuth(req,(err,decoded)=>{
-            if(err)return res.status(error.code?error.code:500).send({msg:error.message})
+            if(err)return res.status(err.code||500).send({msg:err.message})
             res.locals={decoded}
             next()
         })
